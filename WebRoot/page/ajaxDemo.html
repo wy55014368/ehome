@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../lib/jquery-3.1.1.min.js"></script>
+    <script src="../../lib/mock-min.js"></script>
+    <script src="../js/server.js"></script>
+    <script>
+
+        $(function (){
+            $('button').click(function (){
+
+                    $.ajax({
+                        url        : "http://mockjs",    //请求的url地址
+                        dataType   : "json",   //返回格式为json
+                        async      : true, //请求是否异步，默认为异步，这也是ajax重要特性
+                        data       : {},    //参数值
+                        type       : "GET",   //请求方式
+                        beforeSend : function() {
+                            //请求前的处理
+                        },
+                        success: function(req) {  // 发送成功,并成功接收到来自服务器的回复消息
+                            //请求成功时处理 , req表示服务器回传的json数据(字符串形式)
+                            //req = eval('('+req+')')
+                            //得到的json数据,获取内容,进而判断
+                            console.log(req.boolean);
+                            if(req.boolean == true){
+                                alert("登录成功")
+                            }else{
+                                alert('登录失败,请检查用户名密码')
+                            }
+                        },
+                        complete: function() {
+                            //请求完成的处理
+                        },
+                        error: function() {
+                            //请求出错处理
+                        }
+                    })
+                })
+            })
+
+
+    </script>
+</head>
+<body>
+<input type="text" />
+    <button>登录</button>
+</body>
+</html>

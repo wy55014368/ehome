@@ -1,0 +1,177 @@
+.content span{
+    margin-left: 180px;
+}
+.content .moreText{
+    margin-left: 140px;
+    display: block;
+}
+
+.content .fourText{
+    margin-left: 190px;
+}
+.content .twoText{
+    margin-left: 218px;
+}
+.content ul ,.content li{
+    float: left;
+    list-style-type: none;
+    margin-left: 20px;
+
+}
+.content ol{
+    margin-top: -25px;
+    margin-left: 220px;
+}
+.content li{
+    background-color: rgba(0,0,90,0.2);
+    padding: 5px;
+}
+.content input{
+    margin-top: 10px;
+    width: 800px;
+    height: 30px;
+}
+.kuang{
+    margin-top: 10px;
+}
+#beiZhu,#SAdress,#JAdress{
+    height: 50px;
+}
+#scanning{
+    margin-left: -85px;
+    height: 30px;
+    border: none;
+}
+#ZL{
+    float: left;
+    margin-top: 15px;
+    margin-left: -120px;
+}
+#zhongLiang{
+    width: 50px;
+
+}
+#files{
+    float: left;
+    margin-left: 360px;
+    margin-top: -30px;
+}
+#upload{
+    width: 80px;
+   height: 40px;
+    background-color: darkslateblue;
+    border: none;
+    border-radius: 5%;
+    color: white;
+    font-weight: bold;
+}
+#submit{
+    width: 80px;
+    height: 40px;
+    background-color: darkslateblue;
+    border: none;
+    border-radius: 5%;
+    margin-left: 263px;
+    margin-top: 60px;
+    color: white;
+    font-weight: bold;
+}
+#search{
+    width: 300px;
+    margin-left: 30px;
+}
+#DivSearch{
+    display: inline-block;
+}
+#BtnSearch{
+    border: none;
+    margin-left: -54px;
+    height: 28px;
+    width: 50px;
+}
+
+#DivSearch ul{
+    float: none;
+    margin-left:320px;
+    margin-top: -30px;
+}
+#DivSearch ul li{
+    border: 1px solid cornflowerblue;
+    list-style-type: none;
+    width: 40px;
+    height: 30px;
+    margin-left: 0px;
+    text-align: center;
+    line-height: 20px;
+    border-left-style: none;
+   font-weight: bold;
+    background-color: lightgrey;
+}
+#BtnAdress{
+    height: 30px;
+    margin-left: 10px;
+    display: inline;
+    background-color: blue;
+    color: white;
+    border-radius: 8%;
+    border: none;
+}
+
+#mapShow{
+    border-top-width: 3px;
+    border-top-color: lightblue;
+    border-top-style: solid;
+    margin-top: 20px;
+    width: auto;
+    height: 600px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-size: cover;
+    /*background-image: url("../img/user7-128x128.jpg");*/
+}
+
+.types{
+    border: 1px solid gold;
+    width: 700px;
+    height: 430px;
+    z-index: 99999999;
+    position: absolute;
+    left: 39%;
+    top: 50%;
+    background-color: white;
+    display: none;
+}
+
+.types ul{
+    margin: 0;
+    padding: 0;
+   // border: 1px solid red;
+    margin-top: 30px;
+    width: 230px;
+    height: 100px;
+    float: left;
+}
+.types ul div{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 15px;
+   // border: 1px solid red;
+    height: 100px;
+    width: 70px;
+    float: left;
+}
+.types ul li{
+    //border: 1px solid red;
+    float: left;
+    list-style-type: none;
+    margin-left: 10px;
+}
+#panel {
+    position: absolute;
+    background-color: rgb(0,0,0);
+    max-height: 90%;
+    overflow-y: auto;
+    top: 14.2%;
+    right: 10px;
+    width: 280px;
+}

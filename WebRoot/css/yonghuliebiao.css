@@ -1,0 +1,25 @@
+
+#YD,#YDSearch,#YDZT,#YDbtn,#scanning{
+    height: 30px;
+    margin-left: 10px;
+}
+#YD{
+    width: 120px;
+}
+#YDSearch{
+    width: 300px;
+}
+#YDZT{
+    width: 260px;
+}
+#YDbtn{
+    width: 70px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 8%;
+}
+#scanning{
+    margin-left: 160px;
+}
+

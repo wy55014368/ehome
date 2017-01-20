@@ -1,0 +1,75 @@
+
+#father{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    z-index: -1;
+    background-color: rgba(0,0,0,0.6);
+}
+
+#father div{
+    width: 30%;
+    height: 70%;
+    border: 1px solid white;
+    position: relative;
+    left: 30%;
+    top: 10%;
+    background-color: white;
+    z-index: 999;
+}
+#father div .h3{
+    display: inline-block;
+    color: firebrick;
+    font-size: 18px;
+}
+#father div .h4{
+    color: grey;
+    font-size: 15px;
+    margin-left:70px;
+}
+#father div .beizhu{
+    width: 80%;
+    height: 40px;
+}
+#father div .hr{
+    margin-top: 20px;
+}
+#father div .span{
+    margin-left: 30px;
+}
+#father div .btn1{
+    width: 10%;
+    height: 25px;
+    position: relative;
+    margin-top: 20px;
+    left:68%;
+}
+#father div .btn2{
+    position: relative;
+    width: 15%;
+    height: 25px;
+    left:70%;
+    margin-top: 20px;
+}
+#father div .li{
+    list-style-type: none;
+    font-size: 18px;
+}
+#tianjiabeizhu{
+    background-color: #005384;
+    color: white;
+}
+#close{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.didan{
+    width: 70%;
+    height: 40%;
+    border: 1px solid red;
+    background-image: url("../img/2.jpg");
+    background-size: cover;
+
+}
