@@ -1,10 +1,19 @@
 package com.ehome.dao.impl;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.ehome.common.MD5Create;
 import com.ehome.dao.IUserDAO;
+import com.ehome.entity.User;
+import com.ehome.util.DBUtil;
 
 public class UserDAOImpl implements IUserDAO {
 
-	/*private DBUtil dbu = DBUtil.getInstance();
+	private DBUtil dbu = DBUtil.getInstance();
 
 
 	@Override
@@ -51,7 +60,7 @@ public class UserDAOImpl implements IUserDAO {
 			dbu.closeAll();
 		}
 	}
-*/
+
 	
 
 }
