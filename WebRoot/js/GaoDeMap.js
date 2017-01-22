@@ -17,8 +17,8 @@ AMap.service(["AMap.PlaceSearch"], function () {
     var placeSearch = new AMap.PlaceSearch({ //构造地点查询类
         pageSize: 5,
         pageIndex: 1,
-        city: 028, //城市
-        map: map,
+       /* city: 028, //城市*/ 
+       map: map,
         panel: "panel"
     });
     //关键字查询
@@ -26,19 +26,7 @@ AMap.service(["AMap.PlaceSearch"], function () {
        var search = $('#search').val()
         placeSearch.search(search);
     })
-    $('#search').keydown(function(event){
-        switch(event.keyCode) {
-            case 13:
-                var search = $('#search').val()
-                placeSearch.search(search);
-                break;
-            // ...
-            // 不同的按键可以做不同的事情
-            // 不同的浏览器的keycode不同
-            // 更多详细信息:     http://unixpapa.com/js/key.html
-            // 常用keyCode： 空格 32   Enter 13   ESC 27
-        }
-    });
+
 });
 
 

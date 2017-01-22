@@ -1,7 +1,7 @@
 
 #father{
     width: 100%;
-    height: 100%;
+    height: 1900px;
     background-size: cover;
     position: absolute;
     z-index: -1;
@@ -10,11 +10,11 @@
 
 #father div{
     width: 30%;
-    height: 70%;
+    height: 600px;
     border: 1px solid white;
     position: relative;
     left: 30%;
-    top: 10%;
+    top: 5%;
     background-color: white;
     z-index: 999;
 }
@@ -39,17 +39,17 @@
     margin-left: 30px;
 }
 #father div .btn1{
-    width: 10%;
+    width: 15%;
     height: 25px;
     position: relative;
     margin-top: 20px;
-    left:68%;
+    left:62%;
 }
 #father div .btn2{
     position: relative;
-    width: 15%;
+    width: 20%;
     height: 25px;
-    left:70%;
+    left:63%;
     margin-top: 20px;
 }
 #father div .li{
