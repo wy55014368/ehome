@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page import="com.ehome.controller.CreateCode" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -43,27 +45,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form action="/ehome/register" method="post">
       <div class="form-group has-feedback">
         <input type="text" name="username" value="" class="form-control" placeholder="用户姓名">
-        <span style="color:red;">${errors.username }</span>
+        <span>${errors.username }</span>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" name="pwd" value="" class="form-control" placeholder="密码">
-        <span style="color:red;">${errors.pwd }</span>
+        <span>${errors.pwd }</span>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" name="rpwd" value="" class="form-control" placeholder="确认密码">
-        <span style="color:red;">${errors.rpwd }</span>
+        <span>${errors.rpwd }</span>
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="text" name="phoneNumber" value="" class="form-control" placeholder="手机号码">
-        <span style="color:red;">${errors.phoneNumber }</span>
+        <span>${errors.phoneNumber }</span>
         <span class="glyphicon glyphicon-phone form-control-feedback"></span>
       </div>
       <div class="input-group">
             <!-- /btn-group -->
-            <input type="text" class="form-control pre_number" placeholder="验证码(123)">
+            <input type="text" name="validateCode" value="" class="form-control pre_number" placeholder="验证码">
 			<div class="input-group-btn">
 				<!-- <button type="button" class="btn btn-danger get_check" style="color:black;background-color:#F4F4F4;border:1px solid black;">获取验证码</button> -->
 				<div style="width:60px;height:34px;">
@@ -71,13 +73,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
             </div>
       </div>
-      <span style="color:red;">ddd</span>
+      <span>${errors.validateCode }</span>
       <div class="form-group has-feedback" style="margin-top: 20px;">
       	头像：<input style="display:inline;" type="file" name="headshot" value="" placeholder="头像">
       </div>
-       <span style="color:red;">ddd</span>
+       <span>${errors.headshot }</span>
       <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xs-8"> 
           <div class="checkbox icheck">
             <!--<label>
               <input type="checkbox"> I agree to the <a href="#">terms</a>

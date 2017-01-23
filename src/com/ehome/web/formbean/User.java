@@ -3,6 +3,8 @@ package com.ehome.web.formbean;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.ehome.controller.CreateCode;
+
 public class User {
 
 	private String username;
@@ -128,16 +130,6 @@ public class User {
 				}
 			}
 		}
-		
-		/*//两次密码验证
-		if(!pwd.equalsIgnoreCase("rpwd")){
-			isValidate = false;
-			errors.put("rpwd", "输入密码和确认密码不相同");
-			errors.put("pwd", "输入密码和确认密码不相同");
-		}else {
-			errors.put("rpwd", "确认密码合法");
-			errors.put("pwd", "密码合法");
-		}*/
 
 		// 手机号码输入验证
 		if (phoneNumber == null || phoneNumber.equals("")) {
@@ -154,11 +146,24 @@ public class User {
 				} else {
 					errors.put("phoneNumber", "手机号码合法");
 				}
+				
 			}
 		}
 		
-		//验证码单独验证
-		
+		//验证码验证
+		if(!validateCode.equalsIgnoreCase(CreateCode.getCode())){
+			isValidate = false;
+			errors.put("validateCode", "验证码输入错误");
+		}else {
+			errors.put("validateCode", "验证码输入正确");
+		}
+		//头像上传验证
+		if(!(headshot.contains(".jpg")||headshot.contains(".gif")||headshot.contains(".png"))){
+			isValidate = false;
+			errors.put("headshot", "头像后缀名必须是.jpg/.gif/.png");
+		}else {
+			errors.put("headshot", "头像上传合法");
+		}
 		return isValidate;
 
 	}

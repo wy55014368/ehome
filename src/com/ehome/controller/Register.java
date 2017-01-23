@@ -20,6 +20,7 @@ public class Register extends HttpServlet {
 		
 		boolean isValidate = g.validate();
 		
+		request.setAttribute("printCode", g.getValidateCode());
 		request.setAttribute("errors", g.getErrors());
 		request.getRequestDispatcher("/WEB-INF/jsp/register.jsp").forward(request, response);
 		
