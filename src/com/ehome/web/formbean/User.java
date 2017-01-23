@@ -164,7 +164,16 @@ public class User {
 		}else {
 			errors.put("headshot", "头像上传合法");
 		}
+
 		return isValidate;
 
 	}
+
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", pwd=" + pwd + ", phoneNumber=" + phoneNumber
+				+ ", headshot=" + headshot +"]";
+	}
+	
+	
 }

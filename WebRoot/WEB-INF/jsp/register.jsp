@@ -78,6 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	头像：<input style="display:inline;" type="file" name="headshot" value="" placeholder="头像">
       </div>
        <span>${errors.headshot }</span>
+       <span style="color:red;display:block;">${success_register }</span>
       <div class="row">
         <div class="col-xs-8"> 
           <div class="checkbox icheck">
