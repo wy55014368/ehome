@@ -93,7 +93,7 @@
             <button type="submit" style="top:20px;float:left;position:relative;" class="btn btn-primary btn-block btn-flat">登录</button>
           </div>
         <div class="col-xs-4">
-     		 <a href="${pageContext.request.contentType }/ehome/userServlet?m=register">注册</a>
+     		 <a href="${pageContext.request.contextPath }/userServlet?m=register">注册</a>
         </div>
       </div>
       </form>

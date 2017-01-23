@@ -92,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div class="col-xs-4"  style="margin-top: -24px;" >
 <!--           <button style="top:-34px;float:left;position:relative;" class="btn btn-primary btn-block btn-flat btn_user_register">登录</button>
- -->     <a href="${pageContext.request.contentType }/ehome/userServlet?m=login">登录</a>  
+ -->     <a href="${pageContext.request.contextPath}/userServlet?m=login">登录</a> 
  		</div>
         <!-- /.col -->
       </div>
