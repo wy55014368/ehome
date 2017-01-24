@@ -27,9 +27,11 @@ public class Login extends HttpServlet {
 					request.setAttribute("errors", g.getErrors());
 					request.getRequestDispatcher("/WEB-INF/jsp/login_user.jsp").forward(request, response);
 				}else{
-					request.setAttribute("success_login", "登录成功,"+uname+"您好!");
+					/*request.setAttribute("success_login", "登录成功,"+uname+"您好!");
 					request.setAttribute("errors", g.getErrors());
-					request.getRequestDispatcher("/WEB-INF/jsp/login_user.jsp").forward(request, response);
+					request.getRequestDispatcher("/WEB-INF/jsp/login_user.jsp").forward(request, response);*/
+					response.setContentType("text/html");
+					response.setHeader("refresh", "1;/ehome/page/yonghuyundan.html");
 				}
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block

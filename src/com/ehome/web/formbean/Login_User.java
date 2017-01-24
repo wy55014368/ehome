@@ -69,8 +69,14 @@ public class Login_User {
 	public String getName() throws ClassNotFoundException, NoSuchAlgorithmException, UnsupportedEncodingException, SQLException{
 		IUserService ius = new UserServiceImpl();
 		Login_User login_user = ius.login(new Login_User(uid,pwd));
-		String uname = login_user.getUname();
-		return uname;
+		if(login_user!=null){
+			String uname = login_user.getUname();
+			return uname;
+		}else{
+			return null;
+		}
+			
+		
 	}
 
 	public boolean validate() throws ClassNotFoundException, NoSuchAlgorithmException, UnsupportedEncodingException, SQLException {
@@ -86,12 +92,18 @@ public class Login_User {
 		}
 
 		// 验证码验证
-		if (!validateCode.equalsIgnoreCase(CreateCode.getCode())) {
+		if (validateCode == null || validateCode.equals("")) {
 			isValidate = false;
-			errors.put("validateCode", "验证码输入错误");
+			errors.put("validateCode", "验证码不能为空");
 		} else {
-			errors.put("validateCode", "验证码输入正确");
+			if (!validateCode.equalsIgnoreCase(CreateCode.getCode())) {
+				isValidate = false;
+				errors.put("validateCode", "验证码输入错误");
+			} else {
+				errors.put("validateCode", "验证码输入正确");
+			}
 		}
+		
 
 		return isValidate;
 	}

@@ -152,12 +152,18 @@ public class User {
 		}
 
 		// 验证码验证
-		if (!validateCode.equalsIgnoreCase(CreateCode.getCode())) {
+		if (validateCode == null || validateCode.equals("")) {
 			isValidate = false;
-			errors.put("validateCode", "验证码输入错误");
+			errors.put("validateCode", "验证码不能为空");
 		} else {
-			errors.put("validateCode", "验证码输入正确");
+			if (!validateCode.equalsIgnoreCase(CreateCode.getCode())) {
+				isValidate = false;
+				errors.put("validateCode", "验证码输入错误");
+			} else {
+				errors.put("validateCode", "验证码输入正确");
+			}
 		}
+		
 		// 头像上传验证
 		if (!(headshot.contains(".jpg") || headshot.contains(".gif") || headshot.contains(".png"))) {
 			isValidate = false;
