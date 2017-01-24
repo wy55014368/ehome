@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import com.ehome.dao.IUserDAO;
 import com.ehome.dao.impl.UserDAOImpl;
 import com.ehome.service.IUserService;
+import com.ehome.web.formbean.Login_User;
 import com.ehome.web.formbean.User;
 
 
@@ -26,9 +27,9 @@ public class UserServiceImpl implements IUserService {
 
 	// 登入
 	@Override
-	public User login(User user) throws ClassNotFoundException, SQLException,
+	public Login_User login(Login_User login_user) throws ClassNotFoundException, SQLException,
 			NoSuchAlgorithmException, UnsupportedEncodingException {
-		User validateUser = ud.selectUser(user);
+		Login_User validateUser = ud.selectUser(login_user);
 		if (validateUser != null)
 			return validateUser;
 		return null;

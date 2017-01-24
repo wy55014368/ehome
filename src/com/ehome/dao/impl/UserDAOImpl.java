@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import com.ehome.common.MD5Create;
 import com.ehome.dao.IUserDAO;
 import com.ehome.util.DBUtil;
+import com.ehome.web.formbean.Login_User;
 import com.ehome.web.formbean.User;
 
 public class UserDAOImpl implements IUserDAO {
@@ -50,21 +51,20 @@ public class UserDAOImpl implements IUserDAO {
 
 	// 登入
 	@Override
-	public User selectUser(User user)
+	public Login_User selectUser(Login_User login_user)
 			throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, UnsupportedEncodingException {
-		/*String uid = user.getUsername();
-		String phoneNumber = user.getPhoneNumber();
-		String pwd = user.getPwd();
+		String uid = login_user.getUid();
+		String pwd = login_user.getPwd();
 		pwd = MD5Create.getMd5(pwd);
 
 		try {
-			String selectString = "select uname from users where uid=? and pwd=?";
+			String selectString = "select uname from users where uid=? and password=?";
 			PreparedStatement preStat = dbu.getPreparedStatement(selectString);
 			preStat.setString(1, uid);
 			preStat.setString(2, pwd);
 			ResultSet set = dbu.execQuery(preStat);
 			if (set.next()) {
-				User validateUser = new User();
+				Login_User validateUser = new Login_User();
 				validateUser.setUid(uid);
 				validateUser.setUname(set.getString(1));
 				return validateUser;
@@ -72,8 +72,7 @@ public class UserDAOImpl implements IUserDAO {
 			return null;
 		} finally {
 			dbu.closeAll();
-		}*/
-		return null;
+		}
 	}
 
 }

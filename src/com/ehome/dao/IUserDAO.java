@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
+import com.ehome.web.formbean.Login_User;
 import com.ehome.web.formbean.User;
 
 public interface IUserDAO {
@@ -13,7 +14,7 @@ public interface IUserDAO {
 			UnsupportedEncodingException, ClassNotFoundException, SQLException;
 	
 	//登录
-	User selectUser(User user) throws ClassNotFoundException, SQLException,
+	Login_User selectUser(Login_User login_user) throws ClassNotFoundException, SQLException,
 	NoSuchAlgorithmException, UnsupportedEncodingException;
 
 }

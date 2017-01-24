@@ -47,62 +47,73 @@
 </head>
 
 <body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo"></div>
-  <div class="login-box-body" style="position: relative ;/*border:1px solid red;*/">
-	<div class="inn" style="/*border: 1px solid red;*/width:250px;height: 60px;position: absolute;top: 140px;left:90px;display: none">
-          <div class="inn_image" style="/*border: 1px solid red;*/float: left;width: 35px;
+	<div class="login-box">
+		<div class="login-logo"></div>
+		<div class="login-box-body"
+			style="position: relative ;/*border:1px solid red;*/">
+			<div class="inn"
+				style="/*border: 1px solid red;*/width:250px;height: 60px;position: absolute;top: 140px;left:90px;display: none">
+				<div class="inn_image"
+					style="/*border: 1px solid red;*/float: left;width: 35px;
           height: 35px;margin-top: 15px;background-repeat: no-repeat;background-size: cover;"></div>
-          <div class="inn_text" style=" font-size: 18px;/*border: 1px solid red;*/float: left;width: 200px;height: 35px;margin-top: 15px;line-height: 35px"></div>
-    </div>
-    <p class="login-box-msg">用户登录</p>
-      <form action="/ehome/login" method="post">
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control phoneNumber" placeholder="用户ID">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      	<span style="color:red;"></span>
-      </div>
-      
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control phoneNumber" placeholder="密码">
-        <span style="color:red;"></span>
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        
-      </div>
-      <!--<div class="form-group has-feedback">
+				<div class="inn_text"
+					style=" font-size: 18px;/*border: 1px solid red;*/float: left;width: 200px;height: 35px;margin-top: 15px;line-height: 35px"></div>
+			</div>
+			<p class="login-box-msg">用户登录</p>
+			<form action="/ehome/login" method="post">
+				<div class="form-group has-feedback">
+					<input type="text" name="uid" value=""
+						class="form-control phoneNumber" placeholder="用户ID"> <span
+						class="glyphicon glyphicon-user form-control-feedback"></span>
+						<span>${errors.uid }</span>
+				</div>
+
+				<div class="form-group has-feedback">
+					<input type="password" name="pwd" value=""
+						class="form-control phoneNumber" placeholder="密码"> <span
+						class="glyphicon glyphicon-lock form-control-feedback"></span>
+						<span>${errors.pwd }</span>
+				</div>
+				<!--<div class="form-group has-feedback">
         <input type="password" class="form-control pre_number" style="width:200px;" placeholder="验证码">
         <!--<span class="glyphicon glyphicon-lock form-control-feedback"></span>-->
-		<!--<div class="get_check" style="display:inline;border:1px solid #e6e6e6">获取验证码</div>-->
-		<!--<input style="width:120px" id="get_check" class="form-control-feedback" type="button" value="获取验证码"/>
+				<!--<div class="get_check" style="display:inline;border:1px solid #e6e6e6">获取验证码</div>-->
+				<!--<input style="width:120px" id="get_check" class="form-control-feedback" type="button" value="获取验证码"/>
       </div>-->
-	  <div class="input-group">
-            <!-- /btn-group -->
-            <input type="text" class="form-control pre_number" placeholder="验证码">
-			<div class="input-group-btn">
-				<!-- <button type="button" class="btn btn-danger get_check" style="color:black;background-color:#F4F4F4;border:1px solid black;">获取验证码</button> -->
-				<div style="width:60px;height:34px;">
-					<img src="code" onclick="_click(this)" style="width:60px;height:34px;background-size: cover;position:absolute;">
+				<div class="input-group">
+					<!-- /btn-group -->
+					<input type="text" name="validateCode" value=""
+						class="form-control pre_number" placeholder="验证码">
+					<div class="input-group-btn">
+						<!-- <button type="button" class="btn btn-danger get_check" style="color:black;background-color:#F4F4F4;border:1px solid black;">获取验证码</button> -->
+						<div style="width:60px;height:34px;">
+							<img src="code" onclick="_click(this)"
+								style="width:60px;height:34px;background-size: cover;position:absolute;">
+						</div>
+					</div>
+
 				</div>
-            </div>
-            
-      </div>
-      <span style="color:red;"></span>
-      <div class="row">
-          <div class="col-xs-8"></div>
-          <div class="col-xs-4">
-            <button type="submit" style="top:20px;float:left;position:relative;" class="btn btn-primary btn-block btn-flat">登录</button>
-          </div>
-        <div class="col-xs-4">
-     		 <a href="${pageContext.request.contextPath }/userServlet?m=register">注册</a>
-        </div>
-      </div>
-      </form>
-  </div>
-  <br/>
-  <div class="login-box-body range-query">
-          <div>查询配送范围</div>
-  </div>
-</div>
+				<span>${errors.validateCode }</span>
+				<span style="display:block;">${success_login }</span>
+				<div class="row">
+					<div class="col-xs-8"></div>
+					<div class="col-xs-4">
+						<button type="submit"
+							style="top:20px;float:left;position:relative;"
+							class="btn btn-primary btn-block btn-flat">登录</button>
+					</div>
+					<div class="col-xs-4">
+						<a
+							href="${pageContext.request.contextPath }/userServlet?m=register">注册</a>
+					</div>
+				</div>
+			</form>
+		</div>
+		<br />
+		<div class="login-box-body range-query">
+			<div>查询配送范围</div>
+		</div>
+	</div>
 </body>
 <!-- jQuery 2.2.3 -->
 <script src="js/jquery-2.2.3.min.js"></script>
@@ -112,18 +123,18 @@
 <script src="js/icheck.min.js"></script>
 <!-- <script src="js/btn_user_login.js"></script> -->
 <script>
-  $(function () {
-    $('.btn_user_login').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-	  
-    });
-  });
+	$(function() {
+		$('.btn_user_login').iCheck({
+			checkboxClass : 'icheckbox_square-blue',
+			radioClass : 'iradio_square-blue',
+			increaseArea : '20%' // optional
+
+		});
+	});
 </script>
-  <script type="text/javascript">
-  	function _click(o){
-  		o.src = o.src+"?count=1";
-  	}
-  </script>
+<script type="text/javascript">
+	function _click(o) {
+		o.src = o.src + "?count=1";
+	}
+</script>
 </html>
