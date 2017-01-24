@@ -1,4 +1,4 @@
-package com.ehome.dao.impl;
+ package com.ehome.dao.impl;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -12,21 +12,20 @@ import com.ehome.util.DBUtil;
 import com.ehome.web.formbean.User;
 
 public class UserDAOImpl implements IUserDAO {
-
+	// 单例模式实例化
 	private DBUtil dbu = DBUtil.getInstance();
 
-
+	// 注册
 	@Override
-	public String addUser(User user) throws NoSuchAlgorithmException,
-			UnsupportedEncodingException, ClassNotFoundException, SQLException {
+	public String addUser(User user)
+			throws NoSuchAlgorithmException, UnsupportedEncodingException, ClassNotFoundException, SQLException {
 		String username = user.getUsername();
 		String pwd = user.getPwd();
 		pwd = MD5Create.getMd5(pwd);
 		String phoneNumber = user.getPhoneNumber();
 		String headshot = user.getHeadshot();
-		try{
-			String addString = "insert into users(uname,password,phone,"
-					+ "head) values(?,?,?,?)";
+		try {
+			String addString = "insert into users(uname,password,phone," + "head) values(?,?,?,?)";
 			PreparedStatement preStat = dbu.getPreparedStatement(addString);
 			preStat.setString(1, username);
 			preStat.setString(2, pwd);
@@ -44,11 +43,37 @@ public class UserDAOImpl implements IUserDAO {
 				}
 			}
 			return null;
-		}finally{
+		} finally {
 			dbu.closeAll();
 		}
 	}
 
-	
+	// 登入
+	@Override
+	public User selectUser(User user)
+			throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, UnsupportedEncodingException {
+		/*String uid = user.getUsername();
+		String phoneNumber = user.getPhoneNumber();
+		String pwd = user.getPwd();
+		pwd = MD5Create.getMd5(pwd);
+
+		try {
+			String selectString = "select uname from users where uid=? and pwd=?";
+			PreparedStatement preStat = dbu.getPreparedStatement(selectString);
+			preStat.setString(1, uid);
+			preStat.setString(2, pwd);
+			ResultSet set = dbu.execQuery(preStat);
+			if (set.next()) {
+				User validateUser = new User();
+				validateUser.setUid(uid);
+				validateUser.setUname(set.getString(1));
+				return validateUser;
+			}
+			return null;
+		} finally {
+			dbu.closeAll();
+		}*/
+		return null;
+	}
 
 }

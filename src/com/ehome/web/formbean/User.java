@@ -72,6 +72,7 @@ public class User {
 		this.errors = errors;
 	}
 
+	
 	public boolean validate() {
 		boolean isValidate = true;
 
@@ -119,11 +120,11 @@ public class User {
 					isValidate = false;
 					errors.put("rpwd", "确认密码必须在6-12字符之间");
 				} else {
-					if(!pwd.equalsIgnoreCase(rpwd)){
+					if (!pwd.equalsIgnoreCase(rpwd)) {
 						isValidate = false;
 						errors.put("rpwd", "输入密码和确认密码不相同");
 						errors.put("pwd", "输入密码和确认密码不相同");
-					}else {
+					} else {
 						errors.put("rpwd", "确认密码合法");
 						errors.put("pwd", "密码合法");
 					}
@@ -146,22 +147,22 @@ public class User {
 				} else {
 					errors.put("phoneNumber", "手机号码合法");
 				}
-				
+
 			}
 		}
-		
-		//验证码验证
-		if(!validateCode.equalsIgnoreCase(CreateCode.getCode())){
+
+		// 验证码验证
+		if (!validateCode.equalsIgnoreCase(CreateCode.getCode())) {
 			isValidate = false;
 			errors.put("validateCode", "验证码输入错误");
-		}else {
+		} else {
 			errors.put("validateCode", "验证码输入正确");
 		}
-		//头像上传验证
-		if(!(headshot.contains(".jpg")||headshot.contains(".gif")||headshot.contains(".png"))){
+		// 头像上传验证
+		if (!(headshot.contains(".jpg") || headshot.contains(".gif") || headshot.contains(".png"))) {
 			isValidate = false;
 			errors.put("headshot", "头像后缀名必须是.jpg/.gif/.png");
-		}else {
+		} else {
 			errors.put("headshot", "头像上传合法");
 		}
 
@@ -171,9 +172,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", pwd=" + pwd + ", phoneNumber=" + phoneNumber
-				+ ", headshot=" + headshot +"]";
+		return "User [username=" + username + ", pwd=" + pwd + ", phoneNumber=" + phoneNumber + ", headshot=" + headshot
+				+ "]";
 	}
-	
-	
+
 }

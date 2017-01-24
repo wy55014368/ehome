@@ -58,7 +58,7 @@
     <p class="login-box-msg">用户登录</p>
       <form action="/ehome/login" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control phoneNumber" placeholder="手机号/用户名">
+        <input type="text" class="form-control phoneNumber" placeholder="用户ID">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       	<span style="color:red;"></span>
       </div>
