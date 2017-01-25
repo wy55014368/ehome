@@ -41,30 +41,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="register-box-body">
     <p class="login-box-msg">用户注册</p>
 
-    <form action="/ehome/register" method="post">
+    <form id="register_myForm">
       <div class="form-group has-feedback">
-        <input type="text" name="username" value="" class="form-control" placeholder="用户姓名">
-        <span>${errors.username }</span>
+        <input type="text" id="username" name="username" value="" class="form-control" placeholder="用户姓名">
+        <span id="vali_username"></span>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" name="pwd" value="" class="form-control" placeholder="密码">
-        <span>${errors.pwd }</span>
+        <input type="password" id="pwd" name="pwd" value="" class="form-control" placeholder="密码">
+        <span id="vali_pwd"></span>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" name="rpwd" value="" class="form-control" placeholder="确认密码">
-        <span>${errors.rpwd }</span>
+        <input type="password" id="rpwd" name="rpwd" value="" class="form-control" placeholder="确认密码">
+        <span id="vali_rpwd"></span>
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="text" name="phoneNumber" value="" class="form-control" placeholder="手机号码">
-        <span>${errors.phoneNumber }</span>
+        <input type="text" id="phoneNumber" name="phoneNumber" value="" class="form-control" placeholder="手机号码">
+        <span id="vali_phoneNumber"></span>
         <span class="glyphicon glyphicon-phone form-control-feedback"></span>
       </div>
       <div class="input-group">
             <!-- /btn-group -->
-            <input type="text" name="validateCode" value="" class="form-control pre_number" placeholder="验证码">
+            <input type="text" id="validateCode" name="validateCode" value="" class="form-control pre_number" placeholder="验证码">
 			<div class="input-group-btn">
 				<!-- <button type="button" class="btn btn-danger get_check" style="color:black;background-color:#F4F4F4;border:1px solid black;">获取验证码</button> -->
 				<div style="width:60px;height:34px;">
@@ -72,12 +72,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
             </div>
       </div>
-      <span>${errors.validateCode }</span>
+      <span id="vali_validateCode"></span>
       <div class="form-group has-feedback" style="margin-top: 20px;">
-      	头像：<input style="display:inline;" type="file" name="headshot" value="" placeholder="头像">
+      	头像：<input style="display:inline;" type="file" id="headshot" name="headshot" value="" placeholder="头像">
+      
       </div>
-       <span>${errors.headshot }</span>
-       <span style="color:red;display:block;">${success_register }</span>
+       <span id="vali_headshot"></span>
+       <span style="color:red;display:block;" id="vali_success"></span>
       <div class="row">
         <div class="col-xs-8"> 
           <div class="checkbox icheck">
@@ -88,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">注册</button>
+          <button type="button" class="btn btn-primary btn-block btn-flat btn_user_register">注册</button>
         </div>
         <div class="col-xs-4"  style="margin-top: -24px;" >
 <!--           <button style="top:-34px;float:left;position:relative;" class="btn btn-primary btn-block btn-flat btn_user_register">登录</button>
@@ -114,8 +115,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 </body> 
+
 <!-- jQuery 2.2.3 -->
 <script src="js/jquery-2.2.3.min.js"></script>
+<!-- Ajax提交表单数据 -->
+<script src="js/ajax_register.js"></script> 
 <!-- Bootstrap 3.3.6 -->
 <script src="js/bootstrap.min.js"></script>
 <!-- iCheck -->
