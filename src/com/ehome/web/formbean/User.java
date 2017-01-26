@@ -1,10 +1,5 @@
 package com.ehome.web.formbean;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import com.ehome.controller.CreateCode;
-
 public class User {
 
 	private String username;

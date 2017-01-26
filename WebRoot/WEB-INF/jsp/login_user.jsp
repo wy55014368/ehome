@@ -60,19 +60,19 @@
 					style=" font-size: 18px;/*border: 1px solid red;*/float: left;width: 200px;height: 35px;margin-top: 15px;line-height: 35px"></div>
 			</div>
 			<p class="login-box-msg">用户登录</p>
-			<form action="/ehome/login" method="post">
+			<form>
 				<div class="form-group has-feedback">
-					<input type="text" name="uid" value=""
-						class="form-control phoneNumber" placeholder="用户ID"> <span
+					<input type="text" id="id_phoneNumber" name="id_phoneNumber" value=""
+						class="form-control phoneNumber" placeholder="用户ID/手机号"> <span
 						class="glyphicon glyphicon-user form-control-feedback"></span>
-						<span>${errors.uid }</span>
+						<span id="vali_id_phoneNumber"></span>
 				</div>
 
 				<div class="form-group has-feedback">
-					<input type="password" name="pwd" value=""
+					<input type="password" id="pwd" name="pwd" value=""
 						class="form-control phoneNumber" placeholder="密码"> <span
 						class="glyphicon glyphicon-lock form-control-feedback"></span>
-						<span>${errors.pwd }</span>
+						<span id="vali_pwd"></span>
 				</div>
 				<!--<div class="form-group has-feedback">
         <input type="password" class="form-control pre_number" style="width:200px;" placeholder="验证码">
@@ -82,7 +82,7 @@
       </div>-->
 				<div class="input-group">
 					<!-- /btn-group -->
-					<input type="text" name="validateCode" value=""
+					<input type="text" id="validateCode" name="validateCode" value=""
 						class="form-control pre_number" placeholder="验证码">
 					<div class="input-group-btn">
 						<!-- <button type="button" class="btn btn-danger get_check" style="color:black;background-color:#F4F4F4;border:1px solid black;">获取验证码</button> -->
@@ -93,14 +93,13 @@
 					</div>
 
 				</div>
-				<span>${errors.validateCode }</span>
-				<span style="display:block;">${success_login }</span>
+				<span id="vali_validateCode"></span>
+				<span id="login_success" style="display:block;"></span>
 				<div class="row">
 					<div class="col-xs-8"></div>
 					<div class="col-xs-4">
-						<button type="submit"
-							style="top:20px;float:left;position:relative;"
-							class="btn btn-primary btn-block btn-flat">登录</button>
+						<input type="button" value="登录" style="top:20px;float:left;position:relative;"
+							class="btn btn-primary btn-block  btn_user_login" />
 					</div>
 					<div class="col-xs-4">
 						<a href="${pageContext.request.contextPath }/userServlet?m=register">注册</a>
@@ -120,7 +119,7 @@
 <script src="js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="js/icheck.min.js"></script>
-<!-- <script src="js/btn_user_login.js"></script> -->
+<script src="js/ajax_login.js"></script>
 <script>
 	$(function() {
 		$('.btn_user_login').iCheck({

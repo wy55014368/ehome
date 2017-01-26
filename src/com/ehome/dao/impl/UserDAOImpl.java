@@ -66,21 +66,35 @@ public class UserDAOImpl implements IUserDAO {
 	@Override
 	public Login_User selectUser(Login_User login_user)
 			throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, UnsupportedEncodingException {
-		String uid = login_user.getUid();
+		String id_phoneNumber = login_user.getId_phoneNumber();
 		String pwd = login_user.getPwd();
 		pwd = MD5Create.getMd5(pwd);
 
 		try {
-			String selectString = "select uname from users where uid=? and password=?";
+			String selectString = "select uname,phone from users where uid=? and password=?";
 			PreparedStatement preStat = dbu.getPreparedStatement(selectString);
-			preStat.setString(1, uid);
+			preStat.setString(1, id_phoneNumber);
 			preStat.setString(2, pwd);
 			ResultSet set = dbu.execQuery(preStat);
 			if (set.next()) {
 				Login_User validateUser = new Login_User();
-				validateUser.setUid(uid);
+				validateUser.setUid(id_phoneNumber);
 				validateUser.setUname(set.getString(1));
+				validateUser.setPhoneNumber(set.getString(2));
 				return validateUser;
+			}else{
+				String selectString2 = "select uname,uid from users where phone=? and password=?";
+				PreparedStatement preStat2 = dbu.getPreparedStatement(selectString2);
+				preStat2.setString(1, id_phoneNumber);
+				preStat2.setString(2, pwd);
+				ResultSet set2 = dbu.execQuery(preStat2);
+				if (set2.next()) {
+					Login_User validateUser = new Login_User();
+					validateUser.setUid(set2.getString(2));
+					validateUser.setUname(set2.getString(1));
+					validateUser.setPhoneNumber(id_phoneNumber);
+					return validateUser;
+				}
 			}
 			return null;
 		} finally {
