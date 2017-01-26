@@ -9,6 +9,8 @@ import com.ehome.web.formbean.User;
 
 public interface IUserService {
 
+	//注册时手机号码验证(手机号码作为唯一验证身份)
+	boolean vali_phone(String phoneNumber) throws ClassNotFoundException, SQLException;
 	//注册
 	String register(User user) throws NoSuchAlgorithmException,
 			UnsupportedEncodingException, ClassNotFoundException, SQLException;

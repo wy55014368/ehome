@@ -9,6 +9,7 @@ import com.ehome.web.formbean.User;
 
 public interface IUserDAO {
 
+	boolean selectPhone(String phoneNumber) throws ClassNotFoundException, SQLException;
 	//注册
 	String addUser(User user) throws NoSuchAlgorithmException,
 			UnsupportedEncodingException, ClassNotFoundException, SQLException;

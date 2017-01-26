@@ -16,6 +16,19 @@ public class UserDAOImpl implements IUserDAO {
 	// 单例模式实例化
 	private DBUtil dbu = DBUtil.getInstance();
 
+	//注册时手机号码验证
+	@Override
+	public boolean selectPhone(String phoneNumber) throws ClassNotFoundException, SQLException {
+		String selectString = "select uname from users where phone=?";
+		PreparedStatement preStat = dbu.getPreparedStatement(selectString);
+		preStat.setString(1, phoneNumber);
+		ResultSet set = dbu.execQuery(preStat);
+		if (set.next()) {
+			return false;
+		}
+		return true;
+	}
+	
 	// 注册
 	@Override
 	public String addUser(User user)
@@ -74,5 +87,7 @@ public class UserDAOImpl implements IUserDAO {
 			dbu.closeAll();
 		}
 	}
+
+	
 
 }

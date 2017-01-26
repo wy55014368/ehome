@@ -15,7 +15,13 @@ public class UserServiceImpl implements IUserService {
 
 	private IUserDAO ud = new UserDAOImpl();
 
-
+	//注册时手机号码
+	@Override
+	public boolean vali_phone(String phoneNumber) throws ClassNotFoundException, SQLException {
+		boolean vali_phone = ud.selectPhone(phoneNumber);
+		return vali_phone;
+	}
+	
 	// 注册
 	@Override
 	public String register(User user) throws NoSuchAlgorithmException,
@@ -34,6 +40,9 @@ public class UserServiceImpl implements IUserService {
 			return validateUser;
 		return null;
 	}
+
+
+	
 
 
 }

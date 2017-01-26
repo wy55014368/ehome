@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       
       </div>
        <span id="vali_headshot"></span>
-       <span style="color:red;display:block;" id="vali_success"></span>
+       <!-- <span style="color:red;display:block;" id="vali_success"></span> -->
       <div class="row">
         <div class="col-xs-8"> 
           <div class="checkbox icheck">

@@ -90,7 +90,7 @@ $(function() {
 	// 手机号码输入验证
 	$('#phoneNumber').blur(function() {
 		var phoneNumber = $(this).val();	
-		
+		var data = {"phoneNumber":phoneNumber};
 		var checkPhoneNumber = /^1[358][\d]{9}$/;
 		if (phoneNumber == null || phoneNumber == "") {
 			$('#vali_phoneNumber').text("手机号码不能为空");
@@ -100,7 +100,14 @@ $(function() {
 					$('#vali_phoneNumber').text("手机号码不合法");
 
 				} else {
-					$('#vali_phoneNumber').text("手机号码合法");
+					toService("/ehome/vali_phone",data,function(req){
+						if(!req){
+							$('#vali_phoneNumber').text("该用户已经注册过,请登录！");
+						}else{
+							$('#vali_phoneNumber').text("手机号码合法");
+						}
+					})
+					
 				}
 
 			}
@@ -159,16 +166,19 @@ $(function() {
 			||vali_rpwd != "确认密码合法"
 			||vali_pwd != "密码合法"
 			||vali_username != "用户名合法") {
-			$('#vali_success').text("注册失败");
+			//$('#vali_success').text("注册失败");
+			alert("注册失败")
 		}else{
 			var data = {'validateCode':validateCode,'headshot':headshot,
 					'phoneNumber':phoneNumber,'rpwd':rpwd,
 					'pwd':pwd,'username':username};
 			toService('/ehome/register',data,function(req){
 				if(req!=null){
-					$('#vali_success').text("注册成功,您的ID号是："+req);
+					//$('#vali_success').text("注册成功,您的ID号是："+req);
+					alert("注册成功,您的ID号是："+req)
 				}else{
-					$('#vali_success').text("注册失败");
+					//$('#vali_success').text("注册失败");
+					alert("注册失败")
 				}
 			})
 		}
