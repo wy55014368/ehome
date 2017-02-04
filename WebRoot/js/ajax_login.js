@@ -61,7 +61,7 @@ $(function() {
 							alert("登录成功,"+req2+"您好！");
 							window.location.href='/ehome/page/yonghuyundan.html';
 						}else{
-							alert("登录失败");
+							alert("验证码输入错误");
 						}
 					}else{
 						$('#vali_id_phoneNumber').text("用户名或密码输入有误，请检查！");
