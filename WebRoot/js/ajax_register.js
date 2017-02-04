@@ -172,24 +172,21 @@ $(function() {
 			var data = {'validateCode':validateCode,'headshot':headshot,
 					'phoneNumber':phoneNumber,'rpwd':rpwd,
 					'pwd':pwd,'username':username};
-			toService('/ehome/register',data,function(req){
-				if(req!=null){
-					//$('#vali_success').text("注册成功,您的ID号是："+req);
-					var data = {"phoneNumber":phoneNumber};
-					toService("/ehome/vali_phone",data,function(req){
-						if(!req){
-							$('#vali_phoneNumber').text("该用户已经注册过,请登录！");
-						}else{
-							$('#vali_phoneNumber').text("手机号码合法");
+			var data2 = {"phoneNumber":phoneNumber};
+			toService("/ehome/vali_phone",data2,function(req){
+				if(!req){
+					alert("该用户已经注册过,请登录！")
+				}else{
+					toService('/ehome/register',data,function(req){
+						if(req!=null){
 							alert("注册成功,您的ID号是："+req)
+						}else{
+							alert("注册失败")
 						}
 					})
-					
-				}else{
-					//$('#vali_success').text("注册失败");
-					alert("注册失败")
 				}
 			})
+			
 		}
 			
 		
