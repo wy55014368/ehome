@@ -1,20 +1,12 @@
 package com.ehome.test;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
+import java.net.InetAddress;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.beanutils.BeanUtils;
-
-import com.ehome.common.MD5Create;
-import com.ehome.controller.CreateCode;
-import com.ehome.web.formbean.User;
 
 public class Test extends HttpServlet {
 
@@ -55,6 +47,15 @@ public class Test extends HttpServlet {
 			w.print(false);
 		}*/
 		
+		/*Date d = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String createDate =sdf.format(d); 
+		System.out.println(createDate);*/
+		/*InetAddress addr = InetAddress.getLocalHost();
+		String ip=addr.getHostAddress().toString();//获得本机IP
+		String address=addr.getHostName().toString();//获得本机名称
+		System.out.println(ip);
+		System.out.println(address);*/
 	}
 
 

@@ -1,6 +1,7 @@
 package com.ehome.service.impl;
 
 import java.io.UnsupportedEncodingException;
+import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
@@ -34,7 +35,7 @@ public class UserServiceImpl implements IUserService {
 	// 登入
 	@Override
 	public Login_User login(Login_User login_user) throws ClassNotFoundException, SQLException,
-			NoSuchAlgorithmException, UnsupportedEncodingException {
+			NoSuchAlgorithmException, UnsupportedEncodingException, UnknownHostException {
 		Login_User validateUser = ud.selectUser(login_user);
 		if (validateUser != null)
 			return validateUser;

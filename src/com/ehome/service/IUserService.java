@@ -1,6 +1,7 @@
 package com.ehome.service;
 
 import java.io.UnsupportedEncodingException;
+import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
@@ -16,7 +17,7 @@ public interface IUserService {
 			UnsupportedEncodingException, ClassNotFoundException, SQLException;
 	//登录
 	Login_User login(Login_User login_user) throws ClassNotFoundException, SQLException,
-	NoSuchAlgorithmException, UnsupportedEncodingException;
+	NoSuchAlgorithmException, UnsupportedEncodingException, UnknownHostException;
 
 	
 }

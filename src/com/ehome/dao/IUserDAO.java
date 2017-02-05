@@ -1,6 +1,7 @@
 package com.ehome.dao;
 
 import java.io.UnsupportedEncodingException;
+import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
@@ -16,6 +17,6 @@ public interface IUserDAO {
 	
 	//登录
 	Login_User selectUser(Login_User login_user) throws ClassNotFoundException, SQLException,
-	NoSuchAlgorithmException, UnsupportedEncodingException;
+	NoSuchAlgorithmException, UnsupportedEncodingException, UnknownHostException;
 
 }

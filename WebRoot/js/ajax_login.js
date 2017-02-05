@@ -63,6 +63,7 @@ $(function() {
 							alert("验证码输入错误,登录失败");
 						}
 					}else{
+						alert(req2)
 						$('#vali_id_phoneNumber').text("用户名或密码输入有误，请检查！");
 						$('#vali_pwd').text("用户名或密码输入有误，请检查！");
 						alert("登录失败");

@@ -1,6 +1,8 @@
  package com.ehome.dao.impl;
 
 import java.io.UnsupportedEncodingException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,13 +40,24 @@ public class UserDAOImpl implements IUserDAO {
 		pwd = MD5Create.getMd5(pwd);
 		String phoneNumber = user.getPhoneNumber();
 		String headshot = user.getHeadshot();
+		//添加创建日期(类型bigInt)
+		/*Date d = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String createDate =sdf.format(d); */
+		long createDate = System.currentTimeMillis();
+		//添加上次修改时间(类型bigInt,暂时以创建时间代替)
+		long lastModifiedTime = createDate;
+		
 		try {
-			String addString = "insert into users(uname,password,phone," + "head) values(?,?,?,?)";
+			String addString = "insert into users(uname,password,phone,head,createDate,"
+					+ "lastModifiedTime) values(?,?,?,?,?,?)";
 			PreparedStatement preStat = dbu.getPreparedStatement(addString);
 			preStat.setString(1, username);
 			preStat.setString(2, pwd);
 			preStat.setString(3, phoneNumber);
 			preStat.setString(4, headshot);
+			preStat.setLong(5, createDate);
+			preStat.setLong(6, lastModifiedTime);
 			int lines = preStat.executeUpdate();
 			if (lines > 0) {
 				String getUidString = "select uid from users where phone=?";
@@ -65,11 +78,16 @@ public class UserDAOImpl implements IUserDAO {
 	// 登入
 	@Override
 	public Login_User selectUser(Login_User login_user)
-			throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, UnsupportedEncodingException {
+			throws ClassNotFoundException, SQLException, NoSuchAlgorithmException, UnsupportedEncodingException, UnknownHostException {
 		String id_phoneNumber = login_user.getId_phoneNumber();
 		String pwd = login_user.getPwd();
 		pwd = MD5Create.getMd5(pwd);
-
+		//添加或修改最后登录日期（毫秒数）
+		long lastLoginDate = System.currentTimeMillis();
+		//添加或修改最后登录IP
+		InetAddress addr = InetAddress.getLocalHost();
+		String lastLoginIp=addr.getHostAddress().toString();//获得本机IP
+		//String address=addr.getHostName().toString();//获得本机名称
 		try {
 			String selectString = "select uname,phone from users where uid=? and password=?";
 			PreparedStatement preStat = dbu.getPreparedStatement(selectString);
@@ -81,6 +99,18 @@ public class UserDAOImpl implements IUserDAO {
 				validateUser.setUid(id_phoneNumber);
 				validateUser.setUname(set.getString(1));
 				validateUser.setPhoneNumber(set.getString(2));
+				//修改最后登录时间
+				String updateString = "update users set lastLoginDate = ? where uid =? ";
+				PreparedStatement preStat2 = dbu.getPreparedStatement(updateString);
+				preStat2.setLong(1, lastLoginDate);
+				preStat2.setString(2, id_phoneNumber);
+				dbu.execUpdate(preStat2);
+				//修改最后登录IP
+				String updateString2 = "update users set lastLoginIp = ? where uid =? ";
+				PreparedStatement preStat3 = dbu.getPreparedStatement(updateString2);
+				preStat3.setString(1, lastLoginIp);
+				preStat3.setString(2, id_phoneNumber);
+				dbu.execUpdate(preStat3);
 				return validateUser;
 			}else{
 				String selectString2 = "select uname,uid from users where phone=? and password=?";
@@ -93,6 +123,19 @@ public class UserDAOImpl implements IUserDAO {
 					validateUser.setUid(set2.getString(2));
 					validateUser.setUname(set2.getString(1));
 					validateUser.setPhoneNumber(id_phoneNumber);
+					//修改最后登录时间
+					String updateString = "update users set lastLoginDate = ? where uid =? ";
+					PreparedStatement preStat3 = dbu.getPreparedStatement(updateString);
+					preStat3.setLong(1, lastLoginDate);
+					preStat3.setString(2, set2.getString(2));
+					dbu.execUpdate(preStat3);
+					//修改最后登录IP
+					String updateString2 = "update users set lastLoginIp = ? where uid =? ";
+					PreparedStatement preStat4 = dbu.getPreparedStatement(updateString2);
+					preStat4.setString(1, lastLoginIp);
+					preStat4.setString(2, set2.getString(2));
+					dbu.execUpdate(preStat4);
+					
 					return validateUser;
 				}
 			}

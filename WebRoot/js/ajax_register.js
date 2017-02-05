@@ -1,4 +1,3 @@
-
 $(function() {
 
 	function toService(url, data, func) {
@@ -127,7 +126,7 @@ $(function() {
 		}
 	})
 	
-	$('#validateCode').blur(function() {
+	 $('#validateCode').blur(function() {
 		var validateCode = $(this).val();
 		var data = {'code':$('#validateCode').val()};
 		if (validateCode == null || validateCode == "") {
