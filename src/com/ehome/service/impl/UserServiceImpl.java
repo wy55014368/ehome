@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import com.ehome.dao.IUserDAO;
 import com.ehome.dao.impl.UserDAOImpl;
+import com.ehome.entity.Waybill;
 import com.ehome.service.IUserService;
 import com.ehome.web.formbean.Login_User;
 import com.ehome.web.formbean.User;
@@ -39,6 +40,16 @@ public class UserServiceImpl implements IUserService {
 		Login_User validateUser = ud.selectUser(login_user);
 		if (validateUser != null)
 			return validateUser;
+		return null;
+	}
+
+	//运单管理
+	//根据运单号查询运单详情
+	@Override
+	public Waybill select_wb(String goodsWaybillId) throws ClassNotFoundException, SQLException {
+		Waybill wb = ud.select_wd(goodsWaybillId);
+		if (wb != null)
+			return wb;
 		return null;
 	}
 

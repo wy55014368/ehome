@@ -172,7 +172,7 @@
 							<div
 								style="float: right;border: 1px solid black;width:50px;
                 height: 50px;font-size: 20px;line-height: 50px;text-align: center;">
-								<a href="login_user.html">关闭</a>
+								<a href="page/login_user.html">关闭</a>
 							</div>
 						</div> <!-- Menu Body --> <!--<li class="user-body">--> <!--<div class="row">-->
 						<!--<div class="col-xs-4 text-center">--> <!--<a href="#">Followers</a>-->
@@ -265,7 +265,7 @@
 				<li style="margin-top: 10px;"><span style="font-weight: bold">订单信息</span>
 					<hr style="margin: 0" /> 
 					系统订单号：<span class="sp1">YT20161224100338</span>
-					<span style="margin-left: 160px;">运单号：<span>718000872256</span></span><br />
+					<span style="margin-left: 160px;">运单号：<span>${wbMap.goodsWaybillId }</span></span><br />
 					运单状态：<span class="sp2">等待配送</span><br />
 					下单时间：<span class="sp3">2016-12-24 10:03</span><br />
 					 仓储区域：红区<br />
@@ -282,20 +282,21 @@
 				</li>
 				<li style="margin-top: 10px;"><span style="font-weight: bold">配送人信息</span>
 					<hr style="margin: 0" /> 
-					姓名：
-					<span style="margin-left: 400px;">电话：<span>18482100000</span></span><br />
+					姓名：<span>${wbMap.wayPersonName }</span>
+					<span style="margin-left: 300px;">电话：<span>${wbMap.wayPersonNumber }</span></span><br />
 					送达位置：<br />
 				</li>
 				<li style="margin-top: 10px;"><span style="font-weight: bold">收货人信息</span>
 					<hr style="margin: 0" />
-					 姓名：
-					 <span style="margin-left: 400px;">电话：<span>18482100000</span></span><br />
-					  地址：毕辉园<br />
+					 姓名：<span>${wbMap.consigneeName }</span>
+					 <span style="margin-left: 300px;">电话：<span>${wbMap.consigneeNum }</span></span><br />
+					  地址：<span>${wbMap.consigneeAddress }</span><br />
 				</li>
 				<li style="margin-top: 10px;"><span style="font-weight: bold">发货人信息</span>
 					<hr style="margin: 0" />
-					 姓名： <span style="margin-left: 400px;">电话：<span>18482100000</span></span><br />
-					 地址：<br />
+					 姓名： <span>${wbMap.consignerName }</span>
+					<span style="margin-left: 300px;">电话：<span>${wbMap.consignerNumber }</span></span><br />
+					 地址：<span>${wbMap.consignerAddress }</span><br />
 				</li>
 			</ul>
 			<ul style="font-size: 18px;width: 35%;height: 90%;/*border:1px solid red;*/float:right; display: inline-block;">

@@ -10,6 +10,7 @@ import java.sql.SQLException;
 
 import com.ehome.common.MD5Create;
 import com.ehome.dao.IUserDAO;
+import com.ehome.entity.Waybill;
 import com.ehome.util.DBUtil;
 import com.ehome.web.formbean.Login_User;
 import com.ehome.web.formbean.User;
@@ -144,6 +145,36 @@ public class UserDAOImpl implements IUserDAO {
 		} finally {
 			dbu.closeAll();
 		}
+	}
+
+	//运单管理
+	//根据运单号查询运单详情
+	@Override
+	public Waybill select_wd(String goodsWaybillId) throws ClassNotFoundException, SQLException {
+		String selectString = "select wb_Id,wayPersonName,wayPersonNumber,consigneeName,"
+				+ "consigneeNum,consigneeAddress,consignerName,consignerNumber,"
+				+ "consignerAddress from Waybill where goodsWaybillId=?";
+		PreparedStatement preStat = dbu.getPreparedStatement(selectString);
+		preStat.setString(1, goodsWaybillId);
+		ResultSet set = dbu.execQuery(preStat);
+		if (set.next()) {
+			Waybill wb = new Waybill();
+			wb.setWb_Id(set.getString(1));
+			wb.setGoodsWaybillId(goodsWaybillId);
+			
+			wb.setWayPersonName(set.getString(2));
+			wb.setWayPersonNumber(set.getString(3));
+			
+			wb.setConsigneeName(set.getString(4));
+			wb.setConsigneeNum(set.getString(5));
+			wb.setConsigneeAddress(set.getString(6));
+			
+			wb.setConsignerName(set.getString(7));
+			wb.setConsignerNumber(set.getString(8));
+			wb.setConsignerAddress(set.getString(9));
+			return wb;
+		}
+		return null;
 	}
 
 }

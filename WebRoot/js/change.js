@@ -36,10 +36,10 @@ $(function(){
          }
      })
     $('.back').on('click',function(){
-        window.location.href='../page/login_user.html';
+        window.location.href='/ehome/page/login_user.html';
     })
     
      $('.list_return').on('click',function(){
-        window.location.href='../page/yonghuyundan.html';
+        window.location.href='/ehome/page/yonghuyundan.html';
     })
 })
